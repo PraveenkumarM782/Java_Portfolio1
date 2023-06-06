@@ -1,7 +1,12 @@
 package com.health.demo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Employee {
 	
+	@Id
 	private String eid;
 	private String ename;
 	private String edept;
