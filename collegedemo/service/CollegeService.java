@@ -17,67 +17,61 @@ public class CollegeService {
 	CollegeRepository cr;
 	
 
-	List<College> collegelist = new ArrayList<> (Arrays.asList(new College("BYK","Nashik","collegeroad","commerce","879768787"),new College("SIOM","PUNE","vadgaon bk","management","5668778")
-			
-			
-			,new College("NBN","PUNE","Ambegaon","Engineering","789785334")));
+//	List<College> collegelist = new ArrayList<> (Arrays.asList(new College("BYK","Nashik","collegeroad","commerce","879768787"),new College("SIOM","PUNE","vadgaon bk","management","5668778")
+//			
+//			
+//			,new College("NBN","PUNE","Ambegaon","Engineering","789785334")));
 
 	public List<College> getAllcollege() {
 		
 		
-//			List<College> clist = new ArrayList();
-//			cr.findAll().forEach(clist::add);
-//			return clist;
+			List<College> clist = new ArrayList();
+			cr.findAll().forEach(clist::add);
+			return clist;
 		
 		
-		return collegelist;
+		//return collegelist;
 	}
 	
 	public College getCollege(String colname) {
 		
-		 College result = collegelist.stream().filter(a->a.getColName().equals(colname)).findFirst().get();
-		return result;
+//		 College result = collegelist.stream().filter(a->a.getColName().equals(colname)).findFirst().get();
+//		return result;
 		
-	 //	return cr.findById(colname).get();
+	 	return cr.findById(colname).get();
 	} 
 
 	public void addCollege(College cname) {
-			collegelist.add(cname);
-			//cr.save(cname);
+			//collegelist.add(cname);
+			cr.save(cname);
 	}
 
 	public void updateCollege(College t ,String colname) {
 	
-		for(int i=0; i<collegelist.size();i++)
-		{
-			College res = collegelist.get(i);
-			
-			if(res.getColName().equals(colname))
-			{
-				collegelist.set(i, t);
-			}
-		}
+//		for(int i=0; i<collegelist.size();i++)
+//		{
+//			College res = collegelist.get(i);
+//			
+//			if(res.getColName().equals(colname))
+//			{
+//				collegelist.set(i, t);
+//			}
+//		}
 		
-	//	cr.save(t);
+	cr.save(t);
 		
 	}
 
 	public void deleteCollege(String colname) {
-		// TODO Auto-generated method stub
-		collegelist.removeIf(a->a.getColName().equals(colname));
 		
+		//collegelist.removeIf(a->a.getColName().equals(colname));
+
+		cr.deleteById(colname);
 		
-		//cr.deleteById(colname);
 	}
 	
 	
 
-	
-	
-
-	
-
-	
 	
 	
 	
